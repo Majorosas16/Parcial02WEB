@@ -1,28 +1,22 @@
-import { useNavigate } from "react-router-dom";
-import type { CommentType } from "../Types/commentType";
-// import { useDispatch } from "react-redux";
+import { useState } from "react";
 
-const CommentItem = ({id, name, email, body}: CommentType) => {
+const FormComments = () => {
+  const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+      const [body, setBody] = useState("");
 
-const navigate = useNavigate();
-
-const handleEdit = () => {
-    navigate(`/edit/${id}`)
-  };
-
-  const handleAddFavorite = () => {
+  const handleSave = () => {
   };
 
   return (
     <>
-    <h4>{name}</h4>
-    <p>{email}</p>
-    <p>{body}</p>
-    <button onClick={handleEdit}>Edit</button>
-    <button onClick={handleAddFavorite}>Add Favorite</button>
-    <p>---------------------</p>
+      <input value={name} onChange={(e) => setName(e.target.value)} />
+            <input value={email} onChange={(e) => setEmail(e.target.value)} />
+                  <input value={body} onChange={(e) => setBody(e.target.value)} />
+
+      <button onClick={handleSave}>Editar</button>
     </>
   );
 };
 
-export default CommentItem;
+export default FormComments;

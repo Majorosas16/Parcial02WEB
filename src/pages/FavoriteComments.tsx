@@ -1,6 +1,6 @@
 // AQUI LO DEL FETCH
 
-const AddComment = () => {
+const FavoriteComments = () => {
 
   return (
     <>
@@ -12,4 +12,4 @@ const AddComment = () => {
   );
 };
 
-export default AddComment;
+export default FavoriteComments;

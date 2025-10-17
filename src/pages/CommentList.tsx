@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { setComments } from "../redux/slices/commentsSlice";
 import CommentItem from "../components/comment";
 import type { RootState } from "../redux/store";
 import useCommentsApi from "../hooks/useCommentsApi";
 
 const Comments = () => {
-// const navigate = useNavigate();
+const navigate = useNavigate();
 const dispatch = useDispatch();
 
 const {comments} = useCommentsApi();
@@ -16,10 +16,15 @@ const {comments} = useCommentsApi();
 
   dispatch(setComments(comments));
   
+    const handleCreateComment = () => {
+        navigate("/add")
+    };
+
   return (
     <>
     <h1>SocialFeed</h1>
-    <h2>Add a comment:</h2>
+      <button onClick={handleCreateComment}>Create a comment</button>
+    <h2>Comment here:</h2>
 
  {          localComments.map((com, i) => 
               <CommentItem
